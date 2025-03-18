@@ -1,0 +1,53 @@
+TABLE users {
+  id SERIAL [pk]
+  name VARCHAR(255) [not null]
+  email VARCHAR(255) [not null, unique]
+  password VARCHAR(255) [not null]
+}
+
+TABLE wallets {
+  id SERIAL [pk]
+  user_id INT [not null, ref: - users.id]
+}
+
+TABLE cryptos{
+  id SERIAL [pk]
+  wallet_id INT [not null, ref: > wallets.id]
+  cryptocurrency_id INT [not null, ref: > cryptocurrencies.id]
+  balance NUMERIC(20, 2) [not null, default: 0]
+}
+
+TABLE cryptocurrencies{
+  id SERIAL [pk]
+  name VARCHAR(255) [not null]
+  abbreviation VARCHAR(255) [not null, unique]
+}
+
+TABLE fiats{
+  id SERIAL [pk]
+  user_id INT [not null, ref: - users.id]
+  crypto_id INT [not null, ref: > cryptos.id]
+  type ENUM("THB", "USD") [not null]
+  amount NUMERIC(20, 2) [not null, default: 0]
+}
+
+TABLE orders {
+  id SERIAL [pk]
+  user_id INT [not null, ref: - users.id]
+  crypto_id INT [not null, ref: - cryptos.id]
+  cryptocurrency_id INT [not null, ref: - cryptocurrencies.id]
+  type ENUM("BUY", "SELL") [not null]
+  price NUMERIC(20, 2) [not null, default: 0]
+  quantity NUMERIC(20, 2) [not null, default: 0]
+}
+
+TABLE tansactions {
+  id SERIAL [pk]
+  from_order_id INT [not null, ref: - orders.id]
+  from_user_id INT [not null, ref: - users.id]
+  from_crypto_id INT [not null, ref: - cryptos.id]
+  to_order_id INT [not null, ref: - orders.id]
+  to_user_id INT [not null, ref: - users.id]
+  to_crypto_id INT [not null, ref: - cryptos.id]
+  quantity NUMERIC(20, 2) [not null, default: 0]
+}

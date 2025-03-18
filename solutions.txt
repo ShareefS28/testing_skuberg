@@ -1,0 +1,24 @@
+# db docker
+docker pull postgres
+docker run --name my-postgres -e POSTGRES_DB=dev_test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+npm install express sequelize sequelize-auto pg pg-hstore dotenv nodemon 
+
+npx sequelize-cli init
+npx sequelize-cli model:generate --name <ModelName> --attributes <VariableName:DataType>
+npx sequelize-cli model:generate --name User --attributes name:string,email:string,password:string
+
+npx sequelize-cli seed:generate --name <NameOfFiles>
+npx sequelize-cli db:seed:all
+npx sequelize-cli db:seed:undo:all
+
+npx sequelize-cli migration:generate --name <name of db migrate>
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo
+npx sequelize-cli db:migrate:undo:all
+
+# https://sequelize.org/docs/v6/other-topics/resources/
+# scaffold in sequelize
+npx --no-install sequelize-auto -o "./models" -d dev_test -h localhost -u postgres -p 5432 -x mysecretpassword -e postgres
+
+npm run dev
