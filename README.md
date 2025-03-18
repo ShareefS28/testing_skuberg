@@ -2,7 +2,7 @@
 ### Requirements
 1. postgreSQL (หรือ สามารถดูใน solutions.txt ในที่นี้ใช้ docker image run postgres)
 2. การตั้งค่าตาม .env ไฟล์ root folder ของโปรเจค
-3. PostMan
+3. PostMan สามารถ Import จากไฟล์ skuberg.postman_collection.json
 4. ERDiagram อยู่ใน โฟลเดอร์ ../ERDiagram
 
 ### วิธี run
