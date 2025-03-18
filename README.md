@@ -27,7 +27,7 @@ npm run dev
 ```
 
 #### 5.
-ทำการ Create User ผ่าน Postman
+ทำการ Create User ผ่าน Postman http://localhost:3000/api/createUser
 ```bash
 {
     "Name": "test",
@@ -36,7 +36,7 @@ npm run dev
 }
 ```
 #### 6.
-ทำการ Create Order ผลลัพธ์จะ Flow ตาม Controller ที่ได้เขียนไว้
+ทำการ Create Order ผลลัพธ์จะ Flow ตาม Controller ที่ได้เขียนไว้ http://localhost:3000/api/createOrder/{ตามด้วย user.id ของ user}
 ```bash
 {
     "CryptocurrencyId": โปรดระบุ cryptocurrency_id โดยสามารถดูจาก เส้น getById/{id},
