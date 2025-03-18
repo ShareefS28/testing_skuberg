@@ -3,7 +3,7 @@
 1. postgreSQL (หรือ สามารถดูใน solutions.txt ในที่นี้ใช้ docker image run postgres)
 2. การตั้งค่าตาม .env ไฟล์ root folder ของโปรเจค
 3. PostMan สามารถ Import จากไฟล์ skuberg.postman_collection.json
-4. ERDiagram อยู่ใน โฟลเดอร์ ../ERDiagram
+4. ERDiagram อยู่ใน โฟลเดอร์ ../ERDiagram หรือ ดูรูปด้านล่างใน Readme.me
 
 ### วิธี run
 #### 1.
@@ -16,7 +16,7 @@ npm install
 npx sequelize-cli db:migrate
 ```
 
-#### 4. seeders
+#### 3. seeders
 ```bash
 npx sequelize-cli db:seed:all
 ```
@@ -47,4 +47,4 @@ npm run dev
 ### ERDiagram
 ![Alt text](ERDiagram/erdiagram.png)
 
-ีuri ที่กำหนดไว้ http://localhost:3000/api/...
+uri ที่กำหนดไว้ http://localhost:3000/api/...
